@@ -1,0 +1,5 @@
+obj
+bin
+ZipFiles
+appsettings.json
+*.db
