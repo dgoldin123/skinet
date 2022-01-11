@@ -7,7 +7,7 @@ namespace Core.Entities
 {
     public class Product : BaseEntity
     {
-        public string? Name { get; set; }
+        public string Name { get; set; }
         //i added string? so that it is nullable - remove later on
         public string Description { get; set; }
         
