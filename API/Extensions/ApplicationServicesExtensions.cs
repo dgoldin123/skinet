@@ -16,14 +16,13 @@ namespace API.Extensions
         {
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
-            
-            /*
             services.Configure<ApiBehaviorOptions>(options => 
             {
                 options.InvalidModelStateResponseFactory = ActionContext =>
                 {
                     var errors = ActionContext.ModelState
                         .Where(e => e.Value.Errors.Count > 0)
+                        .SelectMany(x => x.Value.Errors)
                         .Select(x => x.ErrorMessage).ToArray();
                     var errorResponse = new ApiValidationErrorResponse
                     {
@@ -32,7 +31,7 @@ namespace API.Extensions
                     return new BadRequestObjectResult(errorResponse);
                 };
             });
-            */
+            
             return services;
         }
     }
