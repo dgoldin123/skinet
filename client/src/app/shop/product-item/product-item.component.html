@@ -1,8 +1,11 @@
 <div class="card h-100 shadow-sm">
+  <div style="vertical-align: middle; align-content: center; width: 252px; border: 0px solid red;">
     <img src="{{product.pictureUrl}}" alt="{{product.name}}" 
-      class="img-fluid bg-info" style="width: 252px;" />
+      class="img-fluid bg-info w-100" />
+      
+    </div>  
     <div class="card-body d-flex flex-column">
-      <a href="#">
+      <a  routerLink="/shop/{{product.id}}">
         <h6 class="text-uppercase">{{product.name}}</h6>
       </a>
       <span class="mb-2">{{product.price | currency}}</span>
@@ -10,7 +13,9 @@
           <button type="button" class="btn btn-outline-secondary">
             <i class="fa fa-shopping-cart fa-2x ms-2 text-dark"></i>
           </button>
-          <button type="button" class="btn btn-outline-secondary">View</button>
+          <button routerLink="/shop/{{product.id}}" type="button" 
+            class="btn btn-outline-secondary">View</button>
         </div>
     </div>
   </div>
+  <!-- style="width: 252px;"-->
