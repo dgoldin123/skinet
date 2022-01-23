@@ -12,7 +12,7 @@ import { ShopService } from './shop.service';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit, OnDestroy {
-  @ViewChild('search', {static: true}) searchTerm: ElementRef; //<input #search
+  @ViewChild('search', {static: false}) searchTerm: ElementRef; //<input #search
   products: IProduct[];
   brands: IBrand[];
   types: IType[];
