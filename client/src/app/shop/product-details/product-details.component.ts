@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IProduct } from 'src/app/shared/models/product';
+import { BreadcrumbService } from 'xng-breadcrumb';
 import { ShopService } from '../shop.service';
 
 @Component({
@@ -13,7 +14,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   product: IProduct;
   prodSub: Subscription
 
-  constructor(private shopService: ShopService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private shopService: ShopService, 
+    private activatedRoute: ActivatedRoute,
+    private bcService: BreadcrumbService
+  ) { }
 
   ngOnInit(): void {
     this.loadProduct();
@@ -25,6 +30,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       .get('id'))
       .subscribe(product => {
         this.product = product;
+        this.bcService.set('@productDetails', product.name);
       }, error => {
         console.log(error);
       }

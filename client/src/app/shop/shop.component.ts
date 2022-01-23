@@ -23,7 +23,7 @@ export class ShopComponent implements OnInit, OnDestroy {
     {name: 'Price: Low to High', value: 'priceAsc'},
     {name: 'Price: High to Low', value: 'priceDesc'},
   ];
-
+  
   productSub: Subscription;
   brandSub: Subscription;
   typeSub: Subscription;
