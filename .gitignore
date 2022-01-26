@@ -3,3 +3,4 @@ bin
 ZipFiles
 appsettings.json
 *.db
+*.rdb
