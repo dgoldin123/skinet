@@ -61,9 +61,6 @@ namespace API.Controllers
         [HttpGet("address")]
         public async Task<ActionResult<AddressDto>> GetUserAddress()
         {
-            //var email = User.FindFirstValue(ClaimTypes.Email);
-            //var email  = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
-            
             //var user  = await _userManager.FindByEmailWithAddressAsync(HttpContext.User);
             var user  = await _userManager.FindUserByClaimsPrincipalWithAddressAsync(User);
 
@@ -104,6 +101,11 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
+            if (CheckEmailExistsAsync(registerDto.Email).Result.Value)
+            {
+                return new BadRequestObjectResult(new ApiValidationErrorResponse{Errors = new []{"Email address is in use"}});
+            }
+
             var user = new AppUser
             {
                 DisplayName = registerDto.DisplayName,
