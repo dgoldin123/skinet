@@ -5,8 +5,7 @@
         <p class="mb-4">
             Your order is being shipped.
         </p>
-        <button class="btn btn-outline-success">
-            View My Order
-        </button>
+        <button *ngIf="order" routerLink="/orders/{{order?.id}}" class="btn btn-outline-success">View My Order</button>
+        <button *ngIf="!order" routerLink="/orders" class="btn btn-outline-success">View My Orders</button>
     </div>
 </div>
