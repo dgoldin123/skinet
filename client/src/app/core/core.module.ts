@@ -10,9 +10,17 @@ import { SectionHeaderComponent } from './section-header/section-header.componen
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { SharedModule } from '../shared/shared.module';
 
+import { OrdersComponent } from '../orders/orders.component';
+import { OrderDetailedComponent } from '../orders/order-detailed/order-detailed.component';
+
+//import { OrdersDetailedComponent } from './orders/orders-detailed/orders-detailed.component';
+//import { OrderComponent } from './orders/orders-detailed/orders/orders.component';
+//import { OrderDetailedComponent } from './orders/order-detailed/order-detailed.component'
+//import { OrdersComponent } from './orders/orders.component'
+
 @NgModule({
   declarations: [NavBarComponent, TestErrorComponent, NotFoundComponent, ServerErrorComponent, 
-    SectionHeaderComponent],
+    SectionHeaderComponent, OrdersComponent, OrderDetailedComponent],
   imports: [
     CommonModule, RouterModule, BreadcrumbModule, SharedModule, 
     ToastrModule.forRoot({

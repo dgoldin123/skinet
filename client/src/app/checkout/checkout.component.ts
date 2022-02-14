@@ -13,19 +13,20 @@ import { IBasketTotals } from '../shared/models/basket';
 export class CheckoutComponent implements OnInit {
   basketTotals$: Observable<IBasketTotals>;
   checkoutForm: FormGroup;
-
+  
   constructor(
     private fb: FormBuilder, 
     private accountService: AccountService,
     private basketService: BasketService
   ) { }
-
+  
   ngOnInit(): void {
     this.createCheckoutForm();
     this.getAddressFormValues();
+    this.getDeliveryMethodValue();
     this.basketTotals$ = this.basketService.basketTotal$;
   }
-
+  
   createCheckoutForm(){
     this.checkoutForm = this.fb.group({
       addressForm: this.fb.group({
@@ -49,10 +50,21 @@ export class CheckoutComponent implements OnInit {
     this.accountService.getUserAddress().subscribe(address => {
       if (address){
         this.checkoutForm.get('addressForm').patchValue(address);
-        console.log(address);
+        //console.log("address");
+        //console.log(address);
       }
     }, error => {
       console.log(error);
     });
   }
+  
+  getDeliveryMethodValue(){
+    const basket = this.basketService.getCurrentBasketValue();
+    if (basket.deliveryMethodId !== null){
+      this.checkoutForm.get('deliveryForm').get('deliveryMethod')
+        .patchValue(basket.deliveryMethodId.toString());
+    }
+  }
+
+
 }

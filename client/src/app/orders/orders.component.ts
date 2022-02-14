@@ -15,10 +15,12 @@ export class OrdersComponent implements OnInit {
   ngOnInit(): void {
     this.getOrders();
   }
-
+  
   getOrders(){
     this.ordersService.getOrdersForUser().subscribe((orders: IOrder[]) => {
       this.orders = orders;
+      console.log("getOrders orders");
+      console.log(orders);
     }, error => {
       console.log(error);
     });

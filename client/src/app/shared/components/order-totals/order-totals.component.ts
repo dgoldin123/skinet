@@ -13,10 +13,10 @@ export class OrderTotalsComponent implements OnInit {
   @Input() shippingPrice: number;
   @Input() subtotal: number;
   @Input() total: number;
-
+  
   //constructor(private basketService: BasketService) { }
-  constructor(private basketService: BasketService) { }
-
+  constructor() { }
+  
   ngOnInit(): void {
     //this.basketTotal$ = this.basketService.basketTotal$;
   }
