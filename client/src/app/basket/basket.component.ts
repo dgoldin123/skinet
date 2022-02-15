@@ -12,9 +12,6 @@ export class BasketComponent implements OnInit {
   basket$: Observable<IBasket>;
   // I added basketTotals$
   basketTotals$: Observable<IBasketTotals>;
-  //@Input() shippingPrice: number;
-  //@Input() subtotal: number;
-  //@Input() total: number;
   
   constructor(private basketService: BasketService) { }
 

@@ -5,7 +5,7 @@ import { PagingHeaderComponent } from './components/paging-header/paging-header.
 import { PagerComponent } from './components/pager/pager.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { OrderTotalsComponent } from './components/order-totals/order-totals.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { CdkStepperModule } from '@angular/cdk/stepper';
@@ -19,10 +19,10 @@ import { RouterModule } from '@angular/router';
     StepperComponent, BasketSummaryComponent],
   imports: [
     CommonModule, PaginationModule.forRoot(), CarouselModule.forRoot(), BsDropdownModule.forRoot(),
-    ReactiveFormsModule, CdkStepperModule, RouterModule
+    ReactiveFormsModule, FormsModule, CdkStepperModule, RouterModule
   ],
   exports:[PaginationModule, PagingHeaderComponent, PagerComponent, CarouselModule, BsDropdownModule, 
-    OrderTotalsComponent, ReactiveFormsModule, TextInputComponent, CdkStepperModule, StepperComponent,
+    OrderTotalsComponent, ReactiveFormsModule, FormsModule, TextInputComponent, CdkStepperModule, StepperComponent,
     BasketSummaryComponent, RouterModule]
 })
 

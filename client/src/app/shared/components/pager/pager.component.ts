@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class PagerComponent implements OnInit {
   @Input() totalCount: number;
   @Input() pageSize: number; //info recieved from parnt component
+  @Input() pageNumber: number;
   @Output() pageChanged = new EventEmitter<number>();  
   //emitting info out from this child component to the parent component
 
